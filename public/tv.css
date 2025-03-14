@@ -1,0 +1,66 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Контейнер для меню */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Делаем колоноки */
+    gap: 10px;
+    width: 100%;
+    max-width: 1800px;
+    justify-content: center;
+}
+
+/* Карточка блюда */
+.menu-item {
+    background: #3498db;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 22px; /* Уменьшаем шрифт */
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px; /* Уменьшаем высоту карточки */
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Цена */
+.price {
+    font-size: 20px;
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+/* Выравнивание текста */
+.menu-item span {
+    display: block;
+    width: 100%;
+    text-align: center;
+}

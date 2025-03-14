@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение цен</title>
+    <link rel="stylesheet" href="prices.css">
+</head>
+<body>
+    <h1>Редактирование цен</h1>
+    <div class="menu-container" id="menu"></div>
+
+    <script>
+        function fetchMenu() {
+            fetch('/menu')
+                .then(res => res.json())
+                .then(data => {
+                    const menuDiv = document.getElementById('menu');
+                    menuDiv.innerHTML = '';
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'menu-item';
+                        div.innerHTML = `
+                            <span>${item.name}</span>
+                            <input type="number" class="price-input" value="${item.price}" step="0.10">
+                            <button onclick="updatePrice(${item.id}, this)">Сохранить</button>
+                        `;
+                        menuDiv.appendChild(div);
+                    });
+                });
+        }
+
+        function updatePrice(id, button) {
+            const priceInput = button.previousElementSibling;
+            const newPrice = parseFloat(priceInput.value);
+            if (isNaN(newPrice) || newPrice < 0) {
+                alert('Некорректная цена');
+                return;
+            }
+
+            fetch('/update-price', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, price: newPrice })
+            }).then(() => {
+                button.innerText = 'Сохранено!';
+                setTimeout(() => button.innerText = 'Сохранить', 1500);
+            });
+        }
+
+        fetchMenu();
+    </script>
+</body>
+</html>

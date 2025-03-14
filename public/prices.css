@@ -1,0 +1,99 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    padding: 30px 50px;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Контейнер меню */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Больше карточек в строку */
+    gap: 15px;
+    width: 95vw;  /* Увеличиваем ширину до 95% экрана */
+    max-width: 1600px; /* Ограничение, чтобы на больших экранах не было растягивания */
+    margin: 0 auto; /* Выравниваем по центру */
+}
+
+/* Карточка блюда */
+.menu-item {
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: #3498db;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Равномерное распределение */
+    align-items: center;
+    text-align: center;
+    height: 120px; /* Фиксированная высота для всех карточек */
+}
+
+/* Название блюда */
+.food-name {
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Контейнер для цены и кнопки */
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Отступ между ценой и кнопкой */
+    width: 100%;
+}
+
+/* Поле ввода цены */
+.price-input {
+    font-size: 18px;
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+/* Кнопка сохранения */
+button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #27ae60;
+}
+
+button:active {
+    transform: scale(0.95);
+}

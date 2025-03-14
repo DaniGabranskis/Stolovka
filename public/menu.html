@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление Меню</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <h1>Управление Меню</h1>
+    <div class="menu-container" id="menu"></div>
+
+    <script>
+        function fetchMenu() {
+            fetch('/menu')
+                .then(res => res.json())
+                .then(data => {
+                    const menuDiv = document.getElementById('menu');
+                    menuDiv.innerHTML = '';
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = `menu-item ${item.available ? 'available' : 'not-available'}`;
+                        div.innerHTML = `<span>${item.name}</span> <span class="price">${item.price.toFixed(2)}€</span>`;
+                        div.onclick = () => updateMenu(item.id, item.available ? 0 : 1);
+                        menuDiv.appendChild(div);
+                    });
+                });
+        }
+
+        function updateMenu(id, available) {
+            fetch('/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, available })
+            }).then(() => fetchMenu());
+        }
+
+        fetchMenu();
+    </script>
+</body>
+</html>
