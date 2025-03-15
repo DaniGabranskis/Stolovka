@@ -8,33 +8,70 @@
 </head>
 <body>
     <h1>Управление Меню</h1>
-    <div class="menu-container" id="menu"></div>
+    <div class="alphabet-nav" id="alphabetNav"></div>
+    <div id="menu"></div>
 
     <script>
         function fetchMenu() {
             fetch('/menu')
                 .then(res => res.json())
                 .then(data => {
+                    // Сортируем блюда по алфавиту
+                    data.sort((a, b) => a.name.localeCompare(b.name));
+                    
                     const menuDiv = document.getElementById('menu');
+                    const alphabetNav = document.getElementById('alphabetNav');
                     menuDiv.innerHTML = '';
+                    alphabetNav.innerHTML = '';
+                    
+                    const groupedItems = {};
                     data.forEach(item => {
-                        const div = document.createElement('div');
-                        div.className = `menu-item ${item.available ? 'available' : 'not-available'}`;
-                        div.innerHTML = `<span>${item.name}</span> <span class="price">${item.price.toFixed(2)}€</span>`;
-                        div.onclick = () => updateMenu(item.id, item.available ? 0 : 1);
-                        menuDiv.appendChild(div);
+                        const firstLetter = item.name[0].toUpperCase();
+                        if (!groupedItems[firstLetter]) {
+                            groupedItems[firstLetter] = [];
+                        }
+                        groupedItems[firstLetter].push(item);
+                    });
+                    
+                    Object.keys(groupedItems).sort().forEach(letter => {
+                        const section = document.createElement('div');
+                        section.className = 'menu-section';
+                        section.id = `letter-${letter}`;
+                        section.innerHTML = `<h2>${letter}</h2><div class="menu-container"></div>`;
+                        
+                        const menuContainer = section.querySelector('.menu-container');
+                        groupedItems[letter].forEach(item => {
+                            const div = document.createElement('div');
+                            div.className = `menu-item ${item.available ? 'available' : 'not-available'}`;
+                            div.innerHTML = `<span>${item.name}</span> <span class="price">${item.price.toFixed(2)}€</span>`;
+                            div.onclick = () => updateMenu(item.id, item.available ? 0 : 1);
+                            menuContainer.appendChild(div);
+                        });
+                        
+                        menuDiv.appendChild(section);
+                        
+                        const button = document.createElement('button');
+                        button.textContent = letter;
+                        button.onclick = () => document.getElementById(`letter-${letter}`).scrollIntoView({ behavior: 'smooth' });
+                        alphabetNav.appendChild(button);
                     });
                 });
         }
-
+    
         function updateMenu(id, available) {
+            console.log('Отправляем:', { id, available });
             fetch('/update', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, available })
-            }).then(() => fetchMenu());
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Ответ сервера:', data);
+                  fetchMenu();
+              })
+              .catch(err => console.error('Ошибка запроса:', err));
         }
-
+    
         fetchMenu();
     </script>
 </body>

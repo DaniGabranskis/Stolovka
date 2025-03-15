@@ -49,6 +49,7 @@ h1 {
     min-height: 100px; /* Уменьшаем высоту карточки */
     text-align: center;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
 }
 
 /* Цена */
@@ -62,5 +63,14 @@ h1 {
 .menu-item span {
     display: block;
     width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+    color: #f39c12;
     text-align: center;
 }

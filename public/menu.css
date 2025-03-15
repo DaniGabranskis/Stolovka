@@ -25,27 +25,66 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Контейнер для блюд */
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    width: 100%;
-    max-width: 1400px;
+/* Контейнер для букв */
+.alphabet-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* Карточка блюда */
-.menu-item {
-    font-size: 22px;
-    padding: 15px;
-    border-radius: 10px;
-    font-weight: bold;
+.alphabet-nav button {
+    padding: 10px;
+    font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Контейнер для блюд по буквам */
+.menu-section {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 1400px;
     text-align: left;
+}
+
+.menu-section h2 {
+    font-size: 24px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Горизонтальный список блюд */
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+    max-width: 100%;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 180px;  /* Фиксированная ширина */
+    min-height: 60px;  /* Минимальная высота */
+    word-wrap: break-word; /* Позволяет переносить слова */
+    overflow-wrap: break-word; /* Дополнительный перенос слов */
+    text-overflow: ellipsis; /* На всякий случай */
+    white-space: normal; /* Позволяет переносить строки */
 }
 
 /* Доступные блюда */
@@ -70,4 +109,42 @@ h1 {
     font-size: 18px;
     color: #f1c40f;
     font-weight: bold;
+}
+
+.menu-item span {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.menu-item .price {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+    .menu-item {
+        width: 180px;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-item {
+        width: 160px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-item {
+        width: 140px;
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-item {
+        width: 100%;
+    }
 }

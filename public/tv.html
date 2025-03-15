@@ -1,32 +1,64 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="lv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>TV Menu</title>
     <link rel="stylesheet" href="tv.css">
 </head>
 <body>
-    <h1>Menu</h1>
-    <div class="menu-container" id="menu"></div>
+    <h1>Ēdienkarte</h1>
+
+    <div class="menu-container">
+        <div id="salati" class="category">
+            <h2>SALĀTI</h2>
+            <div class="menu-items"></div>
+        </div>
+        <div id="otrie" class="category">
+            <h2>OTRIE ĒDIENI</h2>
+            <div class="menu-items"></div>
+        </div>
+        <div id="piedavas" class="category">
+            <h2>PIEDAVAS</h2>
+            <div class="menu-items"></div>
+        </div>
+        <div id="saldie" class="category">
+            <h2>SALDIE ĒDIENI</h2>
+            <div class="menu-items"></div>
+        </div>
+        <div id="dzerieni" class="category">
+            <h2>DZĒRIENI</h2>
+            <div class="menu-items"></div>
+        </div>
+    </div>
 
     <script>
         function fetchMenu() {
             fetch('/menu')
                 .then(res => res.json())
                 .then(data => {
-                    const menuDiv = document.getElementById('menu');
-                    menuDiv.innerHTML = '';
+                    const categories = {
+                        1: document.querySelector("#salati .menu-items"),
+                        2: document.querySelector("#otrie .menu-items"),
+                        3: document.querySelector("#piedavas .menu-items"),
+                        4: document.querySelector("#saldie .menu-items"),
+                        5: document.querySelector("#dzerieni .menu-items")
+                    };
+
+                    // Очищаем старые записи
+                    Object.values(categories).forEach(container => container.innerHTML = '');
+
                     data.forEach(item => {
-                        if (item.available) {
+                        if (item.available && categories[item.type]) {
                             const div = document.createElement('div');
                             div.className = 'menu-item';
                             div.innerHTML = `<span>${item.name}</span> <span class="price">${item.price.toFixed(2)}€</span>`;
-                            menuDiv.appendChild(div);
+                            categories[item.type].appendChild(div);
                         }
                     });
                 });
         }
+
         setInterval(fetchMenu, 5000);
         fetchMenu();
     </script>
