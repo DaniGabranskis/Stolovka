@@ -1,76 +1,128 @@
-/* Общие стили */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    height: 100vh;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #2c3e50;
+  color: #ecf0f1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
 }
 
-/* Заголовок */
 h1 {
-    font-size: 50px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
-/* Контейнер для меню */
 .menu-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Делаем колоноки */
-    gap: 10px;
-    width: 100%;
-    max-width: 1800px;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
+  gap: 0px;
+  padding-bottom: 120px;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.category {
+  padding: 0 10px;
+  margin-bottom: 0;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Карточка блюда */
 .menu-item {
-    background: #3498db;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 22px; /* Уменьшаем шрифт */
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100px; /* Уменьшаем высоту карточки */
-    text-align: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
+  background: #3498db;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Цена */
 .price {
-    font-size: 20px;
-    color: #f1c40f;
-    font-weight: bold;
+  font-size: 40px;
+  color: #ffe600;
+  font-weight: bold;
 }
 
-/* Выравнивание текста */
+/* Текст и аллергены */
 .menu-item span {
-    display: block;
-    width: 100%;
-    text-align: center;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.allergen-index {
+  font-size: 0.6em;
+  margin-left: 2px;
+  vertical-align: sub;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 h2 {
-    font-size: 36px;
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0 10px;
+  color: #f39c12;
+  text-align: center;
+}
+
+#alergenu-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #f39c12;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
     font-weight: bold;
-    text-transform: uppercase;
-    margin: 20px 0 10px;
-    color: #f39c12;
-    text-align: center;
+    text-align: left;
+    z-index: 999;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.25);
+}
+
+#alergenu-banner h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+#alergenu-banner p {
+    margin: 0;
+    line-height: 1.4;
 }

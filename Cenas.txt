@@ -1,0 +1,284 @@
+	
+Cūkgaļas karbonāde	4.50 €
+Cūkgaļas cepetis	5.00 €
+Vistas fileja	4.50 €
+Vistas gaļas "azū"	4.00 €
+Cūkgaļas gulašs	4.00 €
+Liellopu gaļas gulašs	5.50 €
+Zivju kotletes	3.50 €
+Cūkgaļas kotletes	3.60 €
+Cepta vistas kāja	3.80 €
+Dārzeņu sautējums	3.50 €
+Cūkgaļa ar šampinjoniem	4.50 €
+Cūkgaļa ķiploku mērcē	5.00 €
+Cūkgaļas šašliks	5.00 €
+Vistas čahombili	3.70 €
+Rauga pankūkas (gab)	0.70 €
+Vistas gaļas gulašs	4.00 €
+Maltas gaļas mērce	3.60 €
+Makaroni ar gaļu 	3.70 €
+Pikantā cūkgaļa	5.00 €
+"Kurzemes" strogonovs	4.00 €
+Kāpostu tīteņi (gab)	1.90 €
+Cūkgaļas "azū"	4.00 €
+Cepta zivs fileja	4.00 €
+Aknu strogonovs	3.80 €
+Vistu aknas krējuma mērcē	3.80 €
+Pildīta paprika (gab)	1.70 €
+Vārītas desiņas	3.00 €
+Plovs	3.80 €
+Cūkgaļa ar dārzeņiem	4.50 €
+Viltotais zaķis	3.50 €
+Viltotā karbonāde	3.70 €
+Zirņu biezenis ar speķi	3.50 €
+Kartupeļi ar biezpienu 	2.50 €
+Kartupeļi ar biezpienu un siļķi	3.50 €
+Cūkgaļas veltnīši	4.00 €
+Vistas filejas kotletes "Rudens"	4.00 €
+Cūkgaļas fileja ar sieru	5.00 €
+Vistas gaļas kotletes	3.60 €
+Kartupeļu pankūkas (gab)	0.80 €
+Pildītas pankūkas (gab)	1.00 €
+Kotletes ar sēnēm	3.80 €
+Vistas fileja ar sieru	5.00 €
+Bifšteks ar olu	3.70 €
+Dārzeņu sacepums	3.50 €
+Cepta ola	0.30 €
+Kabaču sacepums	3.20 €
+Vistas spārniņi karija mērcē	3.50 €
+Tvaicēti dārzeņi	3.50 €
+Pupiņu sautējums	3.70 €
+Biguss	3.70 €
+Pikantā vistas fileja	5.00 €
+Kabaču pankūkas (gab)	0.70 €
+Žāvēta cūkgaļas krūtiņa 	3.70 €
+Putraimdesa	3.00 €
+Burkānu-zirnīšu sautējums	3.20 €
+Cūku pupas	2.50 €
+Giross	3.00 €
+Šampinjomu mērce	3.50 €
+Vistas grildesiņas	3.00 €
+Cepti puķkāposti	3.50 €
+Vārīta cūkgaļas mēle	5.00 €
+Laša plācenīši	5.00 €
+Pildīta vistas fileja	5.00 €
+Cūkgaļa franču gaumē, puse	3.00 €
+Zemnieku brokastis	3.50 €
+Kartupeļu sacepums	3.20 €
+Baklažānu sacepums	3.50 €
+Pikantā maltās gaļas mērce	3.70 €
+Cūkgaļas ribiņas, puse	2.50 €
+Mājas sautējums	4.00 €
+Ceptas sviesta pupiņas	3.00 €
+Miežu biezputra ar speķi	3.50 €
+Grūbu biezputra ar speķi	3.50 €
+Cūkgaļas mērce ar sēnēm	4.50 €
+Biezpiena plācenīši (gab)	0.80 €
+Vistas gaļas strogonovs ar ananāsiem	4.50 €
+Sautēti kāposti	1.50 €
+Vārīta liellopa mēle	5.00 €
+Cūkgaļa mārrutku mērcē	5.00 €
+Vistas gaļas veltnīši	4.00 €
+Cepts lasis krējuma mērcē	5.00 €
+Cūkgaļas karbonāde franču gaumē, puse	3.00 €
+Frikadelles siera mērcē	3.60 €
+Cūkgaļas strogonovs 	4.00 €
+Kupāti	4.00 €
+Liellopa gaļas cepetis	5.50 €
+Žāvēta vista	3.50 €
+Pelēkie zirņi ar speķi	3.50 €
+Cūkgaļa "Dāņu" gaumē	4.00 €
+Liellopa gaļas azū	5.00 €
+Pikantie biezpiena plācenīši	0.80 €
+Titāra gaļas eskalops	4.50 €
+Cepamdesiņas	3.50 €
+Ceptas austersēnes	3.50 €
+Pelmeņi	3.50 €
+Pildīta tītara fileja ar sēnēm	5.00 €
+Cūkgaļa ar gailenēm	4.50 €
+Cepta žāvēta kakla karbonāde	3.80 €
+Sautēti kāposti ar desiņām	3.50 €
+Cūkgaļas tefteļi 	3.60 €
+Liellopa gaļas gulašs	5.50 €
+Laša fileja	5.00 €
+Pildīta vistas kāja	3.80 €
+Cepti kabači	3.50 €
+Mannas biezputra	3.00 €
+Liellopu aknas krējuma mērcē	3.80 €
+Marinēti cepti vistu šķiņķīši	4.50 €
+Risoto ar vistas filejas gabaliņiem	4.00 €
+Šampinjomu mērce ar vistas fileju	4.50 €
+Kotletes LUKSS	3.60 €
+Pildīti kabači	3.50 €
+Liellopa gaļas sitenis	5.00 €
+Liellopa gaļas kotlete	4.50 €
+Kukurūzas biezputra 	3.20 €
+Aknu plācenīši	3.80 €
+Vistas šašliks	4.00 €
+Vistas nagetes	3.50 €
+Cūkgaļas tefteļi siera mērcē	3.80 €
+Baklažānu sautējums ar vistas fil. gab.	4.00 €
+Auzu pārslu biezputra	3.20 €
+Žāvēti vistas spārniņi	3.50 €
+Cūkgaļas bumbiņas ungāru mērcē	3.70 €
+Vistu šķiņķīši kefīra mērcē	4.50 €
+Vistas fileja karija mērcē	4.50 €
+Grilldesiņas 	3.50 €
+Liellopu gaļa mednieku gaumē	5.50 €
+Līdakas kotletes	5.00 €
+Liellopa gaļas veltnīši	5.50 €
+Cūkgaļa sinepju mērcē	4.00 €
+Zivju tefteļi	3.80 €
+Cūkgaļas eskalops	5.00 €
+Zivs krējuma mērcē	4.00 €
+Vistas filejas gabaliņi karija mērcē	4.50 €
+Tītara gaļas strogonovs	4.50 €
+Mājas kotletes	3.80 €
+Vistas fileja franču gaumē, puse	3.00 €
+Grilēta vistas fileja	4.50 €
+Sēņu mērce	3.50 €
+Cūkgaļas mērce ar gailenēm	4.50 €
+Tītara azū	4.00 €
+Cūkgaļas fileja ar siera mērci	5.00 €
+Dārzeņu burgeri	3.50 €
+Plānā pankūka (gab)	0.80 €
+Cepts grilsiers	3.50 €
+Spinātu burgeri (2 gab)	4.00 €
+Risoto ar sēnēm	3.70 €
+Bulgurs ar dārzeņiem	3.50 €
+Kartupeļu/baklažānu sautējums	3.70 €
+Vistas gaļas karbonāde	4.50 €
+Cūkgaļas fileja sīpolu mērcē	4.00 €
+Liellopu gaļas strogonovs	5.20 €
+Tītara aknas krējuma mērcē	3.80 €
+Cūkgaļa BBQ mērcē	5.00 €
+Cepti vistas šķiņķīši ar dārzeņiem	4.50 €
+Cepelīns (gab)	2.50 €
+Cūkgaļas bumbiņas krējuma mērcē	3.80 €
+Liellopu aknu karbonāde	3.80 €
+Cepta līdakas fileja	5.00 €
+Cepts sams	5.00 €
+Lēcas ar speķi	3.50 €
+Kuskuss ar dārzeņiem	3.20 €
+Prosas biezputra	3.20 €
+Cepta karpas fileja	5.00 €
+Cepta pikšas fileja	4.00 €
+Kartupeļu/baklažānu sacepums	3.50 €
+Risoto ar dārzeņiem	3.20 €
+Makaroni dārzeņu mērcē	3.70 €
+Pupiņu/burkānu sautējums	3.50 €
+Kabaču spinātu pankūka	0.80 €
+Kabaču ķirbju pankūka 	0.70 €
+Pildīta paprika ar rīsiem un sēnēm	3.50 €
+Cepta zandarta fileja 	4.50 €
+Vistas filejas gabaliņi spinātu mērcē	4.00 €
+Cūkgaļa sēņu mērcē	4.20 €
+Vistas gaļas karbonāde franču gaumē	5.00 €
+Zoss azū	5.00 €
+Sēņu plovs	3.50 €
+Cepta sviesta zivs fileja	5.00 €
+Tunča plācenīši	4.50 €
+Cepts tuncis	5.00 €
+Cūkgaļas karbonāde ar sieru un sēnēm	5.00 €
+Tītara gaļas tefteļi	3.80 €
+Tītara šašliks	4.50 €
+Ķirbju pankūka (gab)	0.80 €
+Brieža gaļas guļašs	5.00 €
+Lazaņja	4.00 €
+Tītara fileja franču gaumē	5.00 €
+Tītara fileja ar ananāsiem un sieru	5.00 €
+Cepta zivs burkānu marinādē	4.00 €
+Foreles steiks	5.00 €
+Zivju kotletes krējuma mērcē	3.60 €
+Turku zirņi ar speķi	3.50 €
+Vistas fileja ar sieru un ananāsiem, puse	3.00 €
+Kvinoja ar dārzeņiem	3.20 €
+Cepti cukīni ar tomātu un sieru	3.50 €
+Gaļas salāti	1.70 €
+Krabju salāti	1.30 €
+Siera salāti	1.70 €
+Dārzeņu rosols	1.30 €
+Burkāni ar ķiplokiem	0.90 €
+Mēles salāti	1.70 €
+Vinegrets	0.90 €
+Vistas salāti ar ananāsiem	1.40 €
+Rūjienas salāti	1.00 €
+Burkānu / puravu salāti	0.90 €
+Biešu salāti	0.90 €
+Laša salāti	1.50 €
+Siļķe kažokā	1.40 €
+Tunča kārtojums	1.30 €
+Svaigu gurķu salāti	0.80 €
+Vācu salāti	1.00 €
+Valmieras salāti	1.40 €
+Šķiņķa / vīnogu salāti	1.50 €
+Zivs burkānu mērcē	1.50 €
+Krabju salāti ar puķkāpostiem	1.30 €
+Tomātu / sv. šampinjonu salāti	1.00 €
+Biešu lapu zupa (puse)	1.50 €
+Siera dārzeņu zupa (puse)	1.70 €
+Pelēko zirņu zupa (puse)	1.70 €
+Soļanka (puse)	2.00 €
+Skābeņu zupa (puse)	1.70 €
+Skābu kāpostu zupa (puse)	1.70 €
+Svaigu kāpostu zupa (puse)	1.50 €
+Rasoļņiks (puse)	1.70 €
+Borščs (puse)	1.70 €
+Biešu zupa (puse)	1.70 €
+Harčo zupa (puse)	2.00 €
+Dārzeņu zupa (puse)	1.70 €
+Zemnieku zupa (puse)	1.70 €
+Aukstā zupa (puse)	2.00 €
+Zivju zupa (puse)	1.70 €
+Makaronu zupa (puse)	1.50 €
+Vistas rīsu zupa (puse)	1.70 €
+Sēņu zupa (puse)	1.70 €
+Zirņu zupa (puse) 	1.70 €
+Pupiņu zupa (puse)	1.70 €
+Piena zupa (puse)	1.50 €
+Tomātu zupa (puse)	1.70 €
+Frikadeļu zupa (puse)	2.00 €
+Gulaša zupa (puse)	2.00 €
+Ķirbju krēmzupa (puse)	1.70 €
+Krēmzupa (puse)	1.70 €
+Vistas makaronu zupa (puse)	1.70 €
+Laša zupa (puse)	2.00 €
+Gaileņu zupa (puse)	2.00 €
+Sēņu krēmzupa (puse)	2.00 €
+Tomātu krēmzupa (puse)	2.00 €
+Spinātu krēmzupa (puse)	2.00 €
+Meksikāņu zupa (puse)	2.00 €
+Gaspačo (puse)	2.00 €
+Lēcu zupa (puse)	1.70 €
+Dārzeņu krēmzupa (puse)	1.70 €
+Avokādo/skābeņu krēmzupa (puse)	1.70 €
+Salāti 	1.00 €
+Sula	0.70 €
+Kefīrs	0.70 €
+Dzēriens	0.60 €
+Maize	0.10 €
+Kartupeļi, griķi, rīsi	1.00 €
+Biezpiena krēms	1.50 €
+Cepumu krēms	1.50 €
+Kakao krēms	1.50 €
+Kafijas krēms	1.50 €
+Plūmju krēms	1.50 €
+Jogurta krēms	1.50 €
+Rupjmaizes krēms	1.50 €
+Rozīņu-magoņu krēms	1.50 €
+Augļu krēms	1.50 €
+Rīsu krēms	1.50 €
+Apelsīnu krēms	1.50 €
+Meloņu krēms	1.50 €
+Riekstu krēms	1.50 €
+Kukurūzas krēms	1.50 €
+Piena krēms	1.50 €
+Maizes zupa	1.50 €
+Deserts "Pana Cotta"	1.80 €
+Augļi želejā	1.50 €
+Ķīselis ar pienu	1.30 €
+Augļi ar putukrējumu	1.50 €
+Biezpiena sacepums	1.50 €
+Deserts ar čia sēkļiņām 	1.50 €
+Zemeņu biezenis ar biezpienu	1.80 €
+Persiku biezenis ar biezpienu	1.80 €

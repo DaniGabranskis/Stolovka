@@ -1,66 +1,98 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TV Menu</title>
-    <link rel="stylesheet" href="tv.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TV Menu</title>
+  <link rel="stylesheet" href="tv.css" />
 </head>
 <body>
-    <h1>Ēdienkarte</h1>
+  <h1>Ēdienkarte</h1>
 
-    <div class="menu-container">
-        <div id="salati" class="category">
-            <h2>SALĀTI</h2>
-            <div class="menu-items"></div>
-        </div>
-        <div id="otrie" class="category">
-            <h2>OTRIE ĒDIENI</h2>
-            <div class="menu-items"></div>
-        </div>
-        <div id="piedavas" class="category">
-            <h2>PIEDAVAS</h2>
-            <div class="menu-items"></div>
-        </div>
-        <div id="saldie" class="category">
-            <h2>SALDIE ĒDIENI</h2>
-            <div class="menu-items"></div>
-        </div>
-        <div id="dzerieni" class="category">
-            <h2>DZĒRIENI</h2>
-            <div class="menu-items"></div>
-        </div>
+  <div class="menu-container">
+    <div class="column">
+      <div id="salati" class="category">
+        <h2>SALĀTI</h2>
+        <div class="menu-items"></div>
+      </div>
+      <div id="saldie" class="category">
+        <h2>SALDIE ĒDIENI</h2>
+        <div class="menu-items"></div>
+      </div>
     </div>
 
-    <script>
-        function fetchMenu() {
-            fetch('/menu')
-                .then(res => res.json())
-                .then(data => {
-                    const categories = {
-                        1: document.querySelector("#salati .menu-items"),
-                        2: document.querySelector("#otrie .menu-items"),
-                        3: document.querySelector("#piedavas .menu-items"),
-                        4: document.querySelector("#saldie .menu-items"),
-                        5: document.querySelector("#dzerieni .menu-items")
-                    };
+    <div class="column">
+      <div id="piedavas" class="category">
+        <h2>PIEDEVAS</h2>
+        <div class="menu-items"></div>
+      </div>
+      <div id="dzerieni" class="category">
+        <h2>DZĒRIENI</h2>
+        <div class="menu-items"></div>
+      </div>
+      <div id="zupas" class="category">
+        <h2>ZUPAS</h2>
+        <div class="menu-items"></div>
+      </div>
+    </div>
 
-                    // Очищаем старые записи
-                    Object.values(categories).forEach(container => container.innerHTML = '');
+    <div class="column">
+      <div id="otrie" class="category">
+        <h2>OTRIE ĒDIENI</h2>
+        <div class="menu-items"></div>
+      </div>
+    </div>
+  </div>
 
-                    data.forEach(item => {
-                        if (item.available && categories[item.type]) {
-                            const div = document.createElement('div');
-                            div.className = 'menu-item';
-                            div.innerHTML = `<span>${item.name}</span> <span class="price">${item.price.toFixed(2)}€</span>`;
-                            categories[item.type].appendChild(div);
-                        }
-                    });
-                });
-        }
+    <footer id="alergenu-banner">
+    <h3>Alergēni:</h3>
+    <p>
+      1 - Labība, kas satur glutēnu
+      2 - Vēžveidīgie un to produkti
+      3 - Olas un to produkti
+      4 - Zivis un to produkti
+      5 - Zemesrieksti un to produkti
+      6 - Sojas pupas un to produkti
+      7 - Piens un tā produkti
+      8 - Rieksti (mandeles, valrieksti, utt.)
+      9 - Selerijas un to produkti
+      10 - Sinepes un to produkti
+      11 - Sezama sēklas un to produkti
+      12 - Sēra dioksīds un sulfīti
+      13 - Lupīna un tās produkti
+      14 - Gliemji un to produkti
+    </p>
+  </footer>
 
-        setInterval(fetchMenu, 5000);
-        fetchMenu();
-    </script>
+  <script>
+    function fetchMenu() {
+      fetch('/menu')
+        .then(res => res.json())
+        .then(data => {
+          const categories = {
+            1: document.querySelector("#salati .menu-items"),
+            2: document.querySelector("#otrie .menu-items"),
+            3: document.querySelector("#piedavas .menu-items"),
+            4: document.querySelector("#saldie .menu-items"),
+            5: document.querySelector("#dzerieni .menu-items"),
+            6: document.querySelector("#zupas .menu-items")
+          };
+
+          Object.values(categories).forEach(container => container.innerHTML = '');
+
+          data.forEach(item => {
+            if (Number(item.available) === 1 && categories[item.category_id]) {
+              const div = document.createElement('div');
+              div.className = 'menu-item';
+              div.innerHTML = `<span class="name-wrapper">${item.name}${item.allergens ? `<sub class="allergen-index">${item.allergens}</sub>` : ''}</span><span class="price">${Number(item.price).toFixed(2)}€</span>`;
+              categories[item.category_id].appendChild(div);
+            }
+          });
+        });
+    }
+
+    setInterval(fetchMenu, 5000);
+    fetchMenu();
+  </script>
 </body>
 </html>
