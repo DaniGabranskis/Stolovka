@@ -81,11 +81,11 @@
           Object.values(categories).forEach(container => container.innerHTML = '');
 
           data.forEach(item => {
-            if (Number(item.available) === 1 && categories[item.category_id]) {
+            if (Number(item.available) === 1 && categories[item.type]) {
               const div = document.createElement('div');
               div.className = 'menu-item';
               div.innerHTML = `<span class="name-wrapper">${item.name}${item.allergens ? `<sub class="allergen-index">${item.allergens}</sub>` : ''}</span><span class="price">${Number(item.price).toFixed(2)}€</span>`;
-              categories[item.category_id].appendChild(div);
+              categories[item.type].appendChild(div);
             }
           });
         });

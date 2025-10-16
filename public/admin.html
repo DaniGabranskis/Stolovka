@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Administrēšana - Ēdienkarte</title>
+  <link rel="stylesheet" href="menu.css">
+  <style>
+    /* Small admin tweaks */
+    .admin-wrap{max-width:1200px;width:100%;margin:0 auto;text-align:left}
+    form.admin-form{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:10px;align-items:end;margin:20px 0}
+    form.admin-form input, form.admin-form select{padding:10px;font-size:16px}
+    form.admin-form button{padding:10px;font-size:16px;cursor:pointer}
+    .toolbar input{padding:10px;font-size:16px;flex:1;min-width:260px}
+    .toolbar{display:flex;gap:10px;align-items:center;margin:10px 0}
+    table{width:100%;border-collapse:collapse;background:#fff}
+    th,td{border:1px solid #ddd;padding:8px}
+    th{background:#f0f0f0}
+    td input{width:100%;padding:6px 8px;font-size:14px}
+    .actions{display:flex;gap:8px}
+    .muted{opacity:.7}
+  </style>
+</head>
+<body>
+  <h1>Ēdienkartes administrēšana</h1>
+
+  <div class="admin-wrap">
+    <!-- Add new item -->
+    <h2>Pievienot jaunu pozīciju</h2>
+    <form class="admin-form" id="addForm">
+      <div>
+        <label for="name">Nosaukums</label>
+        <input id="name" name="name" placeholder="Piem., Vistas fileja" required />
+      </div>
+      <div>
+        <label for="price">Cena (€)</label>
+        <input id="price" name="price" type="number" step="0.01" min="0" placeholder="4.50" required />
+      </div>
+      <div>
+        <label for="type">Kategorija</label>
+        <select id="type" name="type" required>
+          <option value="1">SALĀTI</option>
+          <option value="2">OTRIE ĒDIENI</option>
+          <option value="3">PIEDAVAS</option>
+          <option value="4">SALDIE ĒDIENI</option>
+          <option value="5">DZĒRIENI</option>
+        </select>
+      </div>
+      <div>
+        <label for="allergens">Alergēni <span class="muted">(nav obligāti)</span></label>
+        <input id="allergens" name="allergens" placeholder="1,3,7..." />
+      </div>
+      <div>
+        <label for="available">Pieejams</label>
+        <select id="available" name="available">
+          <option value="1">Jā</option>
+          <option value="0">Nē</option>
+        </select>
+      </div>
+      <button type="submit">Pievienot</button>
+    </form>
+
+    <div class="toolbar">
+    <input id="searchInput" placeholder="Meklēt pēc nosaukuma..." />
+    <button id="refreshBtn">Atjaunot tabulu</button>
+    <span class="muted">Tabula rāda aktuālos datus no DB.</span>
+    </div>
+
+    <!-- Table -->
+    <h2>Visas pozīcijas</h2>
+    <table id="menuTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nosaukums</th>
+          <th>Cena (€)</th>
+          <th>Kategorija</th>
+          <th>Pieejams</th>
+          <th>Alergēni</th>
+          <th>Darbības</th>
+        </tr>
+      </thead>
+      <tbody><!-- filled by JS --></tbody>
+    </table>
+  </div>
+
+    <script>
+        let ALL_ROWS = []; // keeps all rows from /menu
+        const TYPE_LABEL = {
+    1: 'SALĀTI',
+    2: 'OTRIE ĒDIENI',
+    3: 'PIEDAVAS',
+    4: 'SALDIE ĒDIENI',
+    5: 'DZĒRIENI'
+    };
+
+    // Accept both numeric and textual category values
+    const TYPE_NAME_TO_ID = {
+    'SALĀTI': 1,
+    'OTRIE ĒDIENI': 2,
+    'PIEDAVAS': 3,
+    'SALDIE ĒDIENI': 4,
+    'DZĒRIENI': 5
+    };
+
+    function normalizeType(raw) {
+    // If it's already a number-like value
+    const maybeNum = Number(raw);
+    if (!Number.isNaN(maybeNum) && maybeNum >= 1 && maybeNum <= 5) return maybeNum;
+
+    // If it's a string name
+    if (raw != null) {
+        const key = String(raw).trim().toUpperCase();
+        if (TYPE_NAME_TO_ID[key]) return TYPE_NAME_TO_ID[key];
+    }
+    // Fallback: keep undefined so select won't change silently
+    return null;
+    }
+
+    function typeOptionsHtml(selected){
+    const selNum = normalizeType(selected);
+    return [1,2,3,4,5].map(v=>{
+        const sel = selNum === v ? 'selected' : '';
+        return `<option value="${v}" ${sel}>${TYPE_LABEL[v]}</option>`;
+    }).join('');
+    }
+
+    async function fetchJSON(url, options){
+      const res = await fetch(url, options);
+      const data = await res.json().catch(()=> ({}));
+      if(!res.ok) throw new Error(data?.error || 'Request failed');
+      return data;
+    }
+
+    async function loadTable(){
+    const data = await fetchJSON('/menu'); // expects array
+    // Defensive sort by name
+    data.sort((a,b)=> String(a.name ?? '').localeCompare(String(b.name ?? '')));
+    ALL_ROWS = data;
+    renderTable();
+    }
+
+    function renderTable(){
+    const tbody = document.querySelector('#menuTable tbody');
+    const q = document.getElementById('searchInput')?.value?.trim().toLowerCase() || '';
+    tbody.innerHTML = '';
+
+    const rows = q
+        ? ALL_ROWS.filter(r => String(r.name ?? '').toLowerCase().includes(q))
+        : ALL_ROWS;
+
+    for (const row of rows){
+        const safeName = (row.name ?? '').replaceAll('"','&quot;');
+        const safeAllerg = (row.allergens ?? '').replaceAll('"','&quot;');
+        const typeVal = normalizeType(row.type) ?? 2; // default to "OTRIE ĒDIENI" if unknown
+        const priceVal = Number(row.price ?? 0);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${row.id}</td>
+        <td><input data-field="name" value="${safeName}" /></td>
+        <td><input data-field="price" type="number" step="0.01" min="0" value="${Number.isFinite(priceVal) ? priceVal.toFixed(2) : '0.00'}" /></td>
+        <td>
+            <select data-field="type">${typeOptionsHtml(typeVal)}</select>
+        </td>
+        <td>
+            <select data-field="available">
+            <option value="1" ${Number(row.available)===1?'selected':''}>Jā</option>
+            <option value="0" ${Number(row.available)===0?'selected':''}>Nē</option>
+            </select>
+        </td>
+        <td><input data-field="allergens" value="${safeAllerg}" /></td>
+        <td class="actions">
+            <button data-action="save">Saglabāt</button>
+            <button data-action="delete">Dzēst</button>
+        </td>
+        `;
+
+        tr.querySelector('[data-action="save"]').onclick = async () => {
+        const payload = {
+            id: row.id,
+            name: tr.querySelector('input[data-field="name"]').value.trim(),
+            price: tr.querySelector('input[data-field="price"]').value,
+            type: Number(tr.querySelector('select[data-field="type"]').value),
+            available: Number(tr.querySelector('select[data-field="available"]').value),
+            allergens: tr.querySelector('input[data-field="allergens"]').value.trim()
+        };
+        await fetchJSON('/menu/update', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload)
+        });
+        await loadTable();
+        };
+
+        tr.querySelector('[data-action="delete"]').onclick = async () => {
+        if (!confirm(`Dzēst pozīciju #${row.id} — "${row.name}"?`)) return;
+        await fetchJSON('/menu/delete', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ id: row.id })
+        });
+        await loadTable();
+        };
+
+        tbody.appendChild(tr);
+    }
+    }
+
+    // Add form
+    document.getElementById('addForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const form = e.currentTarget;
+      const payload = {
+        name: form.name.value.trim(),
+        price: form.price.value,
+        type: Number(form.type.value),
+        available: Number(form.available.value),
+        allergens: form.allergens.value.trim() || null
+      };
+      await fetchJSON('/menu/add', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      });
+      form.reset();
+      form.available.value = '1';
+      form.type.value = '2';
+      await loadTable();
+    });
+
+    // Search: live filter
+    document.getElementById('searchInput').addEventListener('input', renderTable);
+
+    // Refresh button
+    document.getElementById('refreshBtn').onclick = loadTable;
+
+    // Initial load
+    loadTable().catch(err => {
+    console.error(err);
+    alert('Neizdevās ielādēt ēdienkarti.');
+    });
+  </script>
+</body>
+</html>
